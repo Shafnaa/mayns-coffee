@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Americano",
+    "price": 12000,
+    "type": "espresso"
+  },
+  {
+    "id": 2,
+    "name": "Cappuccino",
+    "price": 15000,
+    "type": "espresso"
+  },
+  {
+    "id": 3,
+    "name": "Double Espresso",
+    "price": 15000,
+    "type": "espresso"
+  },
+  {
+    "id": 4,
+    "name": "Machiato",
+    "price": 17000,
+    "type": "espresso"
+  },
+  {
+    "id": 5,
+    "name": "French Fries",
+    "price": 12000,
+    "type": "snacks"
+  },
+  {
+    "id": 6,
+    "name": "Sandwich",
+    "price": 15000,
+    "type": "snacks"
+  },
+  {
+    "id": 7,
+    "name": "Chicken Burger",
+    "price": 15000,
+    "type": "snacks"
+  },
+  {
+    "id": 8,
+    "name": "Beef Burger",
+    "price": 17000,
+    "type": "snacks"
+  }
+]
