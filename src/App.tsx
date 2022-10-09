@@ -8,6 +8,7 @@ import Specials from "./pages/Specials";
 
 
 export default function App() {
+
   return (
     <ShoppingCartProvider>
       <Navbar/>

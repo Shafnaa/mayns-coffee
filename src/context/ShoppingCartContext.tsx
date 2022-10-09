@@ -12,9 +12,7 @@ type CartItem = {
 }
 
 type ShoppingCartContext = {
-  openCanvas: () => void
   openCart: () => void
-  openNav: () => void
   closeCart: () => void
   getItemQuantity: (id: number) => number
   increaseCartQuantity: (id: number) => void
@@ -29,10 +27,9 @@ const ShoppingCartContext = createContext({} as ShoppingCartContext)
 export function useShoppingCart() {
   return useContext(ShoppingCartContext)
 }
+
 export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
   const [isOpen, setIsOpen] = useState(false)
-  const [cartOpen, setCartOpen] = useState(false)
-  const [navOpen, setNavOpen] = useState(false)
   const [cartItems, setCartItems] = useLocalStorage<CartItem[]>(
     "shopping-cart",
     []
@@ -43,23 +40,14 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     0
   )
 
-  const openCanvas = () => setIsOpen(true)
-  const openCart = () => {
-    setIsOpen(true)
-    setCartOpen(true)
-  }
-  const openNav = () => {
-    setIsOpen(true)
-    setNavOpen(true)
-  }
-  const closeCart = () => {
-    setIsOpen(false)
-    setNavOpen(false)
-    setCartOpen(false)
-  }
+  const openCart = () => setIsOpen(true)
+  
+  const closeCart = () => setIsOpen(false)
+
   function getItemQuantity(id: number) {
     return cartItems.find(item => item.id === id)?.quantity || 0
   }
+
   function increaseCartQuantity(id: number) {
     setCartItems(currItems => {
       if (currItems.find(item => item.id === id) == null) {
@@ -75,6 +63,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
       }
     })
   }
+
   function decreaseCartQuantity(id: number) {
     setCartItems(currItems => {
       if (currItems.find(item => item.id === id)?.quantity === 1) {
@@ -90,6 +79,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
       }
     })
   }
+
   function removeFromCart(id: number) {
     setCartItems(currItems => {
       return currItems.filter(item => item.id !== id)
@@ -103,9 +93,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
         increaseCartQuantity,
         decreaseCartQuantity,
         removeFromCart,
-        openCanvas,
         openCart,
-        openNav,
         closeCart,
         cartItems,
         cartQuantity,
