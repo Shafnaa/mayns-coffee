@@ -5,7 +5,9 @@ import CartLogo from "../media/iconmonstr-shopping-cart-3.svg"
 export default function CartButton(){
   const { openCart, cartQuantity } = useShoppingCart()
   return (
-    <Button
+    <>
+    { cartQuantity === 0 ? null : (
+      <Button
       style={{
         width: "3rem", 
         height: "3rem", 
@@ -18,24 +20,22 @@ export default function CartButton(){
       onClick={openCart}
     >
       <img src={CartLogo} alt="cart" />
-      {cartQuantity != 0? (
-        <div 
-          className="rounded-circle bg-danger d-flex justify-content-center align-items-center" 
-          style={{
-            color: "white", 
-            width: "1.5rem", 
-            height: "1.5rem",
-            position: "absolute",
-            bottom: 0,
-            right: 0,
-            transform: "translate(25%,25%)"
-          }}
-        >
-          {cartQuantity}
-        </div>
-      ) : null }
-      
+      <div 
+        className="rounded-circle bg-danger d-flex justify-content-center align-items-center" 
+        style={{
+          color: "white", 
+          width: "1.5rem", 
+          height: "1.5rem",
+          position: "absolute",
+          bottom: 0,
+          right: 0,
+          transform: "translate(25%,25%)"
+        }}
+      >
+        {cartQuantity}
+      </div>  
     </Button>
-
+    )}
+    </>
   )
 }

@@ -1,4 +1,4 @@
-import { Button, Card, Col, Container } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import bg2 from "../media/textured-paper-light.png"
 import CasB from "../media/cupandsun-black.svg"
 import storeItems from "../data/Menu.json"

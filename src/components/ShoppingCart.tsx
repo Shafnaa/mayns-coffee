@@ -1,18 +1,18 @@
 import { Offcanvas, Stack } from "react-bootstrap"
 import { useShoppingCart } from "../context/ShoppingCartContext"
-import { formatCurrency } from "../utilities/formatCurrency"
 import { CartItem } from "./CartItem"
 import storeItems from "../data/Menu.json"
 import CasW from "../media/cupandsun-white.svg"
 import bg1 from "../media/textured-paper-dark.png"
 import formatK from "../utilities/formatK"
+import { NavLink } from "react-router-dom"
 
 type ShoppingCartProps = {
   isOpen: boolean
 }
 
 export function ShoppingCart({ isOpen }: ShoppingCartProps) {
-  const { closeCart, cartItems } = useShoppingCart()
+  const { closeCart, cartItems, cartQuantity } = useShoppingCart()
   return (
     <Offcanvas 
       show={isOpen} 
@@ -74,20 +74,27 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
               )}
             </span>
           </div>
-          <button
-            style={{
-              width: 240,
-              height: 72,
-              borderRadius: 90,
-              border: "1px solid #ffffff",
-              background: "transparent",
-              color: "white",
-              fontSize: "1.5rem",
-              fontWeight: "bold"
-            }}
-          >
-            GENERATE QR
-          </button>
+          {cartQuantity !== 0 ? (
+            <NavLink
+              to="/Barcode"
+              style={{
+                width: 240,
+                height: 72,
+                borderRadius: 90,
+                border: "1px solid #ffffff",
+                background: "transparent",
+                color: "white",
+                fontSize: "1.5rem",
+                fontWeight: "bold",
+                textDecoration: "none",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+              }}
+            >
+              GENERATE QR
+            </NavLink>
+          ) : null }
         </div>
       </Offcanvas.Body>
     </Offcanvas>

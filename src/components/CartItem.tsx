@@ -1,8 +1,6 @@
-import { Button, Stack } from "react-bootstrap"
 import { useShoppingCart } from "../context/ShoppingCartContext"
 import storeItems from "../data/Menu.json"
 import formatK from "../utilities/formatK"
-import { formatCurrency } from "../utilities/formatCurrency"
 
 type CartItemProps = {
   id: number
@@ -46,41 +44,14 @@ export function CartItem({ id, quantity }: CartItemProps) {
           flexDirection: "column"
         }}
       >
-        {quantity === 0 ? (
-          <div
-            style={{
-              width: "100%",
-              height: "100%",
-              display: "flex"
-            }}
-          >
-            <button
-              style={{
-                background: "transparent",
-                height: 32,
-                width: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                borderRadius: 90,
-                justifySelf: "center",
-                alignSelf: "center",
-                fontWeight: "bold"
-              }}
-              onClick={() => increaseCartQuantity(id)}
-            >
-              {formatK(item.price)}
-            </button>
-          </div>
-        ) : (
-          <>
             <div
               style={{
                 width: "100%",
-                height: "50%"
+                height: "50%",
+                textAlign: "center"
               }}
             >
-              {formatK(item.price)}
+              {formatK(item.price * quantity)}
             </div>
             <div
               style={{
@@ -91,7 +62,7 @@ export function CartItem({ id, quantity }: CartItemProps) {
               <div
                 style={{
                   borderRadius: 90,
-                  border: "1px solid #000000",
+                  border: "1px solid #ffffff",
                   height: "100%",
                   display: "flex",
                   flexDirection: "row",
@@ -103,7 +74,8 @@ export function CartItem({ id, quantity }: CartItemProps) {
                     borderStyle: "none",
                     background: "transparent",
                     fontWeight: "bolder",
-                    fontSize: "1rem"
+                    fontSize: "1rem",
+                    color: "white"
                   }}
                   onClick={() => decreaseCartQuantity(id)}
                 >-</button>
@@ -113,14 +85,13 @@ export function CartItem({ id, quantity }: CartItemProps) {
                     borderStyle: "none",
                     background: "transparent",
                     fontWeight: "bolder",
-                    fontSize: "1rem"
+                    fontSize: "1rem",
+                    color: "white"
                   }}
                   onClick={() => increaseCartQuantity(id)}
                 >+</button>
               </div>
             </div>
-          </>
-        ) }
       </div>
     </div>
   )

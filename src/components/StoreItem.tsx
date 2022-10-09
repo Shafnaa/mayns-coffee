@@ -1,4 +1,3 @@
-import { Button, Card } from "react-bootstrap"
 import { useShoppingCart } from "../context/ShoppingCartContext"
 import formatK from "../utilities/formatK"
 
