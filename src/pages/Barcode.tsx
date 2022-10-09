@@ -1,10 +1,18 @@
 import { QRCodeCanvas } from "qrcode.react";
 import { Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import { useShoppingCart } from "../context/ShoppingCartContext";
+import formatK from "../utilities/formatK";
+import storeItems from "../data/Menu.json"
 import bg2 from "../media/textured-paper-light.png"
 
 export default function Barcode(){
-  const qrCodeText = "Cappuccino * 1 # Carramel Latte * 1 # Hazelnut Latte * 1 # French Fries * 1 # Beef Burger * 1"
+  const { cartItems } = useShoppingCart()
+  var qrCodeText = ""
+  cartItems.forEach( (value, index, array) => {
+    const testing = storeItems.find(x => x.id === value.id)
+    qrCodeText += (testing?.name + " * " + value.quantity + " # ")
+  })
 
   return (
     <main 
@@ -57,7 +65,12 @@ export default function Barcode(){
               TOTAL (INCL TAX 10%)
             </span>
             <span>
-              {}
+              {formatK(
+                cartItems.reduce((total, cartItem) => {
+                  const item = storeItems.find(i => i.id === cartItem.id)
+                  return total + (item?.price || 0) * cartItem.quantity
+                }, 0) * 110 / 100
+              )}
             </span>
           </div>
           <NavLink 
