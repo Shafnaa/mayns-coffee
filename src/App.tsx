@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import CartButton from "./components/CartButton";
+import Foot from "./components/Foot";
 import Navbar from "./components/Navbar";
 import { ShoppingCartProvider } from "./context/ShoppingCartContext";
 import Barcode from "./pages/Barcode";
@@ -20,6 +21,7 @@ export default function App() {
         <Route path="/Barcode" element={<Barcode/>}/>
       </Routes>
       <CartButton/>
+      <Foot/>
     </ShoppingCartProvider>
   );
 }

@@ -46,5 +46,29 @@
     "name": "Beef Burger",
     "price": 17000,
     "type": "snacks"
+  },
+  {
+    "id": 9,
+    "name": "Caramel Latte",
+    "price": 20000,
+    "type": "specials",
+    "imgurl": "/media/scooters-coffee.png",
+    "recipe": "Coffee, Milk, Caramel Syrup, Caramel Sauce"
+  },
+  {
+    "id": 10,
+    "name": "Hazelnut Latte",
+    "price": 20000,
+    "type": "specials",
+    "imgurl": "/media/mc-caffe.png",
+    "recipe": "Coffee, Milk, Hazelnut Syrup, Caramel Syrup"
+  },
+  {
+    "id": 11,
+    "name": "Vanilla Latte",
+    "price": 20000,
+    "type": "specials",
+    "imgurl": "/media/starbucks-iced-coffee.png",
+    "recipe": "Coffee, Milk, Vanilla Syrup"
   }
 ]

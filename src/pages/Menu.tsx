@@ -7,6 +7,7 @@ import { StoreItem } from "../components/StoreItem";
 export default function Menu(){
   const espresso = storeItems.filter(x => x.type === "espresso")
   const snacks = storeItems.filter(s => s.type === "snacks")
+  const specials = storeItems.filter(y => y.type === "specials")
 
   return (
     <main 
@@ -102,6 +103,42 @@ export default function Menu(){
             SNACKS
           </div>
           {snacks.map(item => (
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between"
+              }}
+              key={item.id}
+            >
+              <StoreItem {...item}/>
+            </div>
+          ))}
+        </div>
+        <div 
+          style={{
+            height: 480, 
+            width: 360, 
+            background: "transparent", 
+            fontWeight: "bold", 
+            textAlign: "center", 
+            paddingTop: "2rem", 
+            fontSize: "1.5rem", 
+            display: "flex", 
+            flexDirection: "column",
+            justifyContent: "space-evenly"
+          }}
+        >
+          <div 
+            style={{
+              width: "100%", 
+              fontSize: "2rem", 
+              textAlign: "left"
+            }}
+          >
+            SPECIALS
+          </div>
+          {specials.map(item => (
             <div
               style={{
                 display: "flex",
