@@ -7,7 +7,7 @@ import storeItems from "../data/Menu.json"
 import bg2 from "../media/textured-paper-light.png"
 
 export default function Barcode(){
-  const { cartItems } = useShoppingCart()
+  const { cartItems, removeFromCart } = useShoppingCart()
   var qrCodeText = ""
   cartItems.forEach( (value, index, array) => {
     const testing = storeItems.find(x => x.id === value.id)
@@ -87,6 +87,11 @@ export default function Barcode(){
               display: "flex",
               justifyContent: "center",
               alignItems: "center"
+            }}
+            onClick={() => {
+              cartItems.forEach((value) => {
+                removeFromCart(value.id)
+              })
             }}
           >
             CLEAR CART
