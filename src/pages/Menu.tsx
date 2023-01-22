@@ -39,9 +39,19 @@ export default function Menu(){
             justifyContent: "center"
           }}
         >
-          <img src={CasB} alt="Mayn's" style={{height: "10rem"}}/>
-          <span>MAYN'S</span>
-          <span>COFFEE & EATERY</span>
+          <img 
+            src={CasB} 
+            alt="Mayn's" 
+            style={{
+              height: "10rem"
+            }}
+          />
+          <span>
+            MAYN'S
+          </span>
+          <span>
+            COFFEE & EATERY
+          </span>
         </div>
         <div 
           style={{

@@ -3,7 +3,11 @@ import { useShoppingCart } from "../context/ShoppingCartContext";
 import CartLogo from "../media/iconmonstr-shopping-cart-3.svg"
 
 export default function CartButton(){
-  const { openCart, cartQuantity } = useShoppingCart()
+  const { 
+    openCart, 
+    cartQuantity 
+  } = useShoppingCart()
+  
   return (
     <>
       { cartQuantity === 0 ? null : (

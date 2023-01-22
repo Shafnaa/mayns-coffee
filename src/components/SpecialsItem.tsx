@@ -39,8 +39,12 @@ export default function SpecialsItem({ id, name, price, type, imgurl = "", recip
         style={{
           fontSize: "1.8rem"
         }}
-      >{name}</span>
-      <span>{recipe}</span>
+      >
+        {name}
+      </span>
+      <span>
+        {recipe}
+      </span>
       {quantity === 0 ? (
         <div
           style={{
@@ -66,8 +70,8 @@ export default function SpecialsItem({ id, name, price, type, imgurl = "", recip
               color: "#4978A3"
             }}
             onClick={() => increaseCartQuantity(id)}
-          >{
-            formatK(price)}
+          >
+            {formatK(price)}
           </button>
         </div>
       ) : (
@@ -108,8 +112,12 @@ export default function SpecialsItem({ id, name, price, type, imgurl = "", recip
                   color: "#4978A3"
                 }}
                 onClick={() => decreaseCartQuantity(id)}
-              >-</button>
-              <span>{quantity}</span>
+              >
+                -
+              </button>
+              <span>
+                {quantity}
+              </span>
               <button
                 style={{
                   borderStyle: "none",
@@ -119,7 +127,9 @@ export default function SpecialsItem({ id, name, price, type, imgurl = "", recip
                   color: "#4978A3"
                 }}
                 onClick={() => increaseCartQuantity(id)}
-              >+</button>
+              >
+                +
+              </button>
             </div>
           </div>
         </>

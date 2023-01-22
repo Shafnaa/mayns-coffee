@@ -6,7 +6,11 @@ export default function Specials(){
   const specials = storeItems.filter(i => i.type === "specials")
 
   return (
-    <main style={{backgroundColor: "#F2E8DE"}}>
+    <main 
+      style={{
+        backgroundColor: "#F2E8DE"
+      }}
+    >
       <Container
         style={{
           display: "flex",

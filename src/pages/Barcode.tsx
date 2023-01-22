@@ -9,7 +9,7 @@ import bg2 from "../media/textured-paper-light.png"
 export default function Barcode(){
   const { cartItems, removeFromCart } = useShoppingCart()
   var qrCodeText = ""
-  cartItems.forEach( (value, index, array) => {
+  cartItems.forEach( (value) => {
     const testing = storeItems.find(x => x.id === value.id)
     qrCodeText += (testing?.name + " * " + value.quantity + " # ")
   })
